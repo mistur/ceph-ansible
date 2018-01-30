@@ -62,6 +62,10 @@
       - restart ceph rgws
       - restart ceph mgrs
       - restart ceph rbdmirrors
+
+  - name: force all notified handlers to run at this point, not waiting for normal sync points
+    meta: flush_handlers
+
   when:
     - not containerized_deployment|bool
 
